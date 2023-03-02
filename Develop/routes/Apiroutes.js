@@ -2,7 +2,7 @@ const route = require('express').Router();
 const { Router } = require('express');
 const {v4: uuidv4} = require('uuid');
 const notes = require('../db/db.json');
-const {createNote, findID, editNote, removeNote} = require('../notes.js');
+const {addNote, findID, changeNote, deleateNote} = require('../notes.js');
 
 uuidv4();
 
@@ -16,11 +16,11 @@ route.post('/notes', (req, res) => {
     
     if(!req.body.id) {
         req.body.id = uuidv4();
-        createNote(req.body, notes);
+        addNote(req.body, notes);
     } 
     
     else {
-        editNote(req.body, notes);
+        changeNote(req.body, notes);
     }
 
     res.json(req.body);
@@ -32,7 +32,7 @@ route.delete('/notes/:id', (req, res) => {
 
     const noteOne = findID(req.params.id, notes);
 
-    removeNote(noteOne, notes);
+    deleateNote(noteOne, notes);
     res.json();
 
 });
