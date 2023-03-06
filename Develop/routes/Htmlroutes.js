@@ -15,5 +15,5 @@ route.get('/notes', (req, res) => {
   });
 
 
-  
+
 module.exports = route;
