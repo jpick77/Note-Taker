@@ -37,3 +37,7 @@
   [jpick77](https://github.com/jpick77)
 
   jpickron30@gmail.com
+
+
+![Alt text](./note.taker.pic.png "note.taker.pic")
+![Alt text](./note.taker.pic.1.png "note.taker.pic.1")
