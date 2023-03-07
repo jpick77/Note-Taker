@@ -2,7 +2,10 @@ const route = require('express').Router();
 // const { Router } = require('express');
 const {v4: uuidv4} = require('uuid');
 const notes = require('../db/db.json');
-const {addNote, findID, changeNote, deleateNote} = require('../notes.js').default;
+const addNote = require('../notes.js').default;
+const findID = require('../notes.js').default;
+const changeNote = require('../notes.js').default;
+const deleateNote = require('../notes.js').default;
 
 uuidv4();
 

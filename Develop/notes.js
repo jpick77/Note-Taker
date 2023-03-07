@@ -1,19 +1,21 @@
-import { writeFileSync } from 'fs';
-import { join } from 'path';
-import { notes } from './db/db.json';
+const fs = require('fs');
+const path = require('path');
+const {notes} = require('./db/db.json');
 
 let noteArray = [];
+// const store = {
+
 
 
 const addNote = (note, noteArray) => {
 
     noteArray.push(note);
 
-    writeFileSync(
+    fs.writeFileSync(
        "./db/db.json",
         JSON.stringify(noteArray, null, 2)
     );
-};
+}
 
     
 const findID = (id, noteArray) => {
@@ -30,11 +32,11 @@ const changeNote = (editedNote, noteArray) => {
     noteArray.splice(index, 1);
     noteArray.splice(index, 0, editedNote);
     
-    writeFileSync(
+    fs.writeFileSync(
         join(__dirname, notes),
         JSON.stringify(noteArray, null, 2)
     );
-};
+}
 
 
 const deleateNote = (note, noteArray) => {
@@ -42,11 +44,12 @@ const deleateNote = (note, noteArray) => {
     const index = noteArray.indexOf(note);
     noteArray.splice(index, 1);
 
-    writeFileSync(
+    fs.writeFileSync(
       "./db/db.json",
         JSON.stringify(noteArray, null, 2)
 
     );
-};
+}
 
-export default {addNote, findID, changeNote, deleateNote};
+// };
+module.exports = {addNote, findID, changeNote, deleateNote};
