@@ -7,25 +7,25 @@ let noteArray = [];
 
 
 
-const addNote = (note, noteArray) => {
+function addNote (note, noteArray)  {
 
     noteArray.push(note);
 
     fs.writeFileSync(
-       "./db/db.json",
+       "./Develop/db/db.json",
         JSON.stringify(noteArray, null, 2)
     );
 }
 
     
-const findID = (id, noteArray) => {
+function findID (id, noteArray) {
 
     const result = noteArray.filter(note => note.id === id)[0];
     return result;
 }
 
 
-const changeNote = (editedNote, noteArray) => {
+function changeNote (editedNote, noteArray) {
 
     const index = noteArray.findIndex(note => note.id === editedNote.id);
 
@@ -39,13 +39,13 @@ const changeNote = (editedNote, noteArray) => {
 }
 
 
-const deleateNote = (note, noteArray) => {
+function deleateNote (note, noteArray) {
 
-    const index = noteArray.indexOf(note);
+    const index = noteArray.note;
     noteArray.splice(index, 1);
 
     fs.writeFileSync(
-      "./db/db.json",
+      "./Develop/db/db.json",
         JSON.stringify(noteArray, null, 2)
 
     );
